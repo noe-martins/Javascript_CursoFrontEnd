@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema léxico</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body,
+        html{
+            font-size: 62.5%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: orangered;
+            width: 1280px;
+            height: 100vh;
+            margin: 0 auto;
+            position: relative;
+        }
+        .btn-voltar{
+            width: fit-content;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin-bottom: 30px;
+        }
+        .btn-voltar a{
+            display: inline-block;
+            padding: 12px;
+            border-radius: 3px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            background-color: #fff;
+            color: orangered;
+        }
+        .btn-voltar a:hover{
+            background-color: orangered;
+            outline: 1px solid #fff;
+            color: #fff;
+        }
+        /* ---------------------------------------------------------------------------------------------------------------------------------- */
+        .caseSensitive{
+            padding: 20px;
+            border: 1px solid #fff;
+        }
+        .caseSensitive h2{
+            margin-top: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="caseSensitive">
+        <h1>Sistema Léxico</h1>
+        <h2 id="output"></h2>
+        <!-- nome e Nome são coisas diferentes -->
+        <script>
+            let output = document.querySelector('#output');
+
+            let msg = '';
+            for (let index = 0; index < 9; index++) {
+                msg += 'Case-sensitive: Nome e nome são diferentes (Exemplo) <br>'
+            }
+            output.innerHTML = msg;
+        </script>
+    </div>
+
+
+    <div class="btn-voltar">
+        <a href="/index.html">Voltar</a>
+    </div>
+</body>
+</html>

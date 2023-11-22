@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="Pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema léxico</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        body,
+        html{
+            font-size: 62.5%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: orangered;
+            width: 1280px;
+            height: 100vh;
+            margin: 0 auto;
+            position: relative;
+        }
+        .btn-voltar{
+            width: fit-content;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin-bottom: 30px;
+        }
+        .btn-voltar a{
+            display: inline-block;
+            padding: 12px;
+            border-radius: 3px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            background-color: #fff;
+            color: orangered;
+        }
+        .btn-voltar a:hover{
+            background-color: orangered;
+            outline: 1px solid #fff;
+            color: #fff;
+        }
+        /* ---------------------------------------------------------------------------------------------------------------------------------- */
+        .caseSensitive{
+            padding: 20px;
+            border: 1px solid #fff;
+        }
+        .caseSensitive h2{
+            margin-top: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="caseSensitive">
+        <h1>Tudo no console</h1>
+        <h2 id="output"></h2>
+        <!-- nome e Nome são coisas diferentes -->
+        <script>
+            //------- Função Literal -------
+            function somar(n1,n2) {
+                return n1 + n2;
+            }
+
+            let soma = somar(10,20);
+            console.log('Resultado: ' + soma);
+
+            //------- De primeira classe -------
+            let teste = function() {
+                console.log('teste')
+            };
+
+            teste.mult = 10 * 20;
+            console.log(teste.mult);
+
+            //------- Passada por parâmetro -------
+            let escreva = function(f) {
+                f();
+            };
+
+            escreva(function() {
+                console.log('Programação Funcional');
+            });
+
+            //------- Escopo Local -------
+            let x = 10;
+            let y;
+
+            function mostrarX() {
+                let x = 5; //Escopo Local
+                y = 20; //Escopo Global
+                console.log('x = ' + x);
+            }
+            mostrarX();
+
+            console.log('x = ' + x);
+            console.log('y = ' + y);
+
+            //------- Funções autoexecutáveis (IIFE) -------
+            (function() {
+                'use strict' //Não vai deixar uma variável global ser criada no escopo local
+                let isValid = false;
+                console.log(isValid);
+            })();
+
+            //------- Propriedade 'arguments' -------
+            function multiplicacao(arr) {
+                console.log(arguments); //Mostra os argumentos(índices) da função
+                let result = 0;
+                let i = 0;
+
+                while (arguments[i]) {
+                    result += arguments[i];
+                    i++;
+                }
+                console.log('Result: ' + result);
+            }
+
+            multiplicacao(2,3,4,5);
+        </script>
+    </div>
+
+
+    <div class="btn-voltar">
+        <a href="/index.html">Voltar</a>
+    </div>
+</body>
+</html>
